@@ -1,15 +1,40 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+class Employee {
+    int id;
+    String firstName;
+    String lastName;
+    double salary;
+
+    Employee(int id, String firstName, String lastName, double salary) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.salary = salary;
+    }
+
+    String getName() {
+        return firstName + " " + lastName;
+    }
+
+    double getAnnualSalary() {
+        return salary * 12;
+    }
+
+    void raiseSalary(double amount) {
+        salary += amount;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee[id=" + id + ", name=" + getName() + ", salary=" + salary + "]";
+    }
+}
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
-
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+        Employee emp = new Employee(1, "James", "Bond", 5000);
+        System.out.println(emp);
+        System.out.println("Annual Salary: " + emp.getAnnualSalary());
+        emp.raiseSalary(500);
+        System.out.println("After Raise: " + emp);
     }
 }
